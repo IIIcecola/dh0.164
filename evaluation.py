@@ -2101,7 +2101,7 @@ def main():
     """统一的主函数，根据配置选择模式"""
     parser = argparse.ArgumentParser()
     parser.add_argument("--config", type=str, default="config.yaml", help="path to config file")
-    parser.add_argument("--mode", type=str, choices=["inference", "evaluate", "compare"], 
+    parser.add_argument("--mode", type=str, choices=["inference", "evaluate", "compare"], nargs='?', const=None,
                        help="override mode in config file")
     args = parser.parse_args()
 
@@ -2113,11 +2113,11 @@ def main():
         config.mode = args.mode
     
     # 根据模式执行不同流程
-    if config.mode == "inference":
+    if config.evaluate_mode == "inference":
         run_inference_mode(config)
-    elif config.mode == "evaluate":
+    elif config.evaluate_mode == "evaluate":
         run_evaluate_mode(config)
-    elif config.mode == "compare":
+    elif config.evaluate_mode == "compare":
         run_compare_mode(config)
     else:
         print(f"未知的模式: {config.mode}")
