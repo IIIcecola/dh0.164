@@ -100,7 +100,7 @@ class Audio2FaceTester:
         # 初始化可视化工具
         self.logger.info(f"尝试初始化FacialParamVisualizer可视化工具...")
         self.visualizer = FacialParamVisualizer(
-          param_mapping_path=Path(param_mapping_pat),
+          param_mapping_path=Path(param_mapping_path),
           fps=self.fps,
           max_params_per_category=max_params_per_category,  # 每个类别最多显示多少参数
           output_dir=self.visualization_dir
